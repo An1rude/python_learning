@@ -20,6 +20,5 @@ def check_fermat():
         print("Please note a, b, c and n have to be positive integers")
         check_fermat()
 
-    
-
 check_fermat()
+print("success")
