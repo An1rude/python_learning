@@ -21,6 +21,7 @@ def check_fermat():
         if n < 3:
             print("n must be greater than 2")
             n = int(input("n="))
+            check_fermat()
         if a**n + b**n == c**n and n > 2:
             print("Holly smokes, Fermat was wrong")
         if a**n + b**n != c**n and n > 2:
