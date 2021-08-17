@@ -8,29 +8,60 @@ def check_int(s):
     else:
         return s.isdigit()
 
-def check_fermat():
-    a = input("a=")  
-    b = input("b=")
-    c = input("c=")
-    n = input("n=")
-    if check_int(a) and check_int(b) and check_int(c) and check_int(n):
-        a = int(a)
-        b = int(b)
-        c = int(c)
-        n = int(n)
-        if n < 3:
-            print("n must be greater than 2")
-            n = int(input("n="))
-            check_fermat()
-        if a**n + b**n == c**n and n > 2:
-            print("Holly smokes, Fermat was wrong")
-        if a**n + b**n != c**n and n > 2:
-            print(a**n + b**n, "is not equal to",  c**n)
-            print("Fermat is correct afterall")
+def inpt_a():
+    a = input("a=")
+    if check_int(a):
+         a = int(a)
+         return int(a)
     else:
-        print("Please note a, b, c and n have to be positive integers")
-        check_fermat()
+        print("a must be a positive integer")
+        inpt_a()
 
+    
+def inpt_b():
+    b = input("b=")
+    if check_int(b):
+        b = int(b)
+        return int(b)
+    else:
+        print("b must be a positive integer")
+        inpt_b()
+
+
+
+def inpt_c():
+    c = input("c=")
+    if check_int(c):
+     c = int(c)
+     return int(c)
+    else:
+        print("c must be a positive integer")
+        inpt_c()
+
+
+
+def inpt_n():
+    n = input("n=")
+    if check_int(n):
+        n = int(n)
+        if n<3:
+            print("n must be greater than 2")
+            inpt_n()
+        return int(n)
+    else:
+        print("n must be a positive integer")
+        inpt_n()
+          
+             
+def check_fermat():
+    a = inpt_a()
+    b = inpt_b()
+    c = inpt_c()
+    n = inpt_n()
+    if a**n + b**n == c**n:
+        print("Holy smokes! Fermat was wrong !!!")
+    else:
+        print(a**n + b**n, "is not equal to",  c**n)
+        print("Fermat is correct afterall")
 
 check_fermat()
-print("success")
